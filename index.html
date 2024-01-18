@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3 Wizzard</title>
+  </head>
+  <center><h1>Web3 Wizzard 🧙‍♂️</h1></center>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <center><textarea rows="10" cols="60" readonly>
+
+    // WriteContract.tsx //
+   
+     writeContract({
+       address: '0x097e0dda06abc2ecfac77f4af56eecc5a80cb68f',
+       abi: parseAbi(['function mint(uint256 tokenId)']),
+       functionName: 'mint',
+       args: [BigInt(tokenId)],
+     })
+   
+   </textarea></center>
+   <br><br>
+   <center><textarea rows="15" cols="60" readonly>
+ 
+     // ReadContract.tsx //
+    
+     import { useReadContract } from 'wagmi'
+ 
+     function ReadContract() {
+       const { data: balance } = useReadContract({
+         ...wagmiContractConfig,
+         functionName: 'balanceOf',
+         args: ['0x03A71968491d55603FFe1b11A9e23eF013f75bCF'],
+       })
+ 
+       return (
+         <div>Balance: {balance?.toString()}</div>
+    
+    </textarea></center>
+  </body>
+</html>
